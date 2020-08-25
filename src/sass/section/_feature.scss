@@ -1,0 +1,61 @@
+.feature__item {
+  &:nth-child(odd) {
+    text-align: right;
+  }
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  &:nth-child(1) {
+    .video-bnr__overlay {
+      background-image: url(https://picsum.photos/id/100/600/400);
+    }
+  }
+  &:nth-child(2) {
+    .video-bnr__overlay {
+      background-image: url(https://picsum.photos/id/101/600/400);
+    }
+  }
+  &:nth-child(3) {
+    .video-bnr-youtube__overlay {
+      background-image: url(https://picsum.photos/id/102/600/400);
+    }
+  }
+  &:nth-child(4) {
+    .video-bnr-youtube__overlay {
+      background-image: url(https://picsum.photos/id/103/600/400);
+    }
+  }
+}
+
+// スクロールアニメーション関連
+.feature__item {
+  .video-bnr,
+  .video-bnr-youtube {
+    opacity: 0;
+    transition: opacity $transtion-default;
+  }
+  .video-bnr__overlay,
+  .video-bnr-youtube__overlay {
+    transform: scale(1.2);
+    transition: transform $transtion-default;
+  }
+  .video-bnr__btn,
+  .video-bnr-youtube__btn {
+    opacity: 0;
+    transition: opacity $transtion-default .3s;
+  }
+  &.is-animated {
+    .video-bnr,
+    .video-bnr-youtube {
+      opacity: 1;
+    }
+    .video-bnr__overlay,
+    .video-bnr-youtube__overlay {
+      transform: scale(1);
+    }
+    .video-bnr__btn,
+    .video-bnr-youtube__btn {
+      opacity: 1;
+    }
+  }
+}

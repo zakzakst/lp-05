@@ -1,0 +1,59 @@
+// キービジュアル固定用のスタイル
+html.is-hero-fix {
+  height: calc(100% + 1px);
+  overflow-y: scroll;
+  body {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+.hero {
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  will-change: transform, opacity;
+}
+
+// キービジュアル
+.hero__kv-video-wrapper {
+  position: absolute;
+  min-width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  filter: grayscale(.9);
+  opacity: .3;
+}
+.hero__kv-video {
+  width: 100%;
+}
+.hero__kv-overlay {
+  position: absolute;
+  content: '';
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0), $color-bg-primary 100%);
+  transform-origin: bottom center;
+  transform: translateY(100%);
+}
+
+// タイトル
+.hero__title {
+  position: relative;
+}
+
+// コンテンツ
+.hero__content {
+  position: relative;
+  min-height: calc(100vh + 1px);
+  padding-top: 1px;
+  visibility: hidden;
+  z-index: 1;
+  will-change: transform, opacity;
+}

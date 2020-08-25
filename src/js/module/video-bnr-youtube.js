@@ -1,9 +1,8 @@
 import YouTubePlayer from 'youtube-player';
 
-export class VideoBnrYoutube {
-  constructor(elId, playerId) {
-    this.el = document.getElementById(elId);
-    this.playerId = playerId;
+class VideoBnrYoutubeClass {
+  constructor(el) {
+    this.el = el;
     this.overlayEl = this.el.querySelector('.video-bnr-youtube__overlay');
     this.btnEl = this.el.querySelector('.video-bnr-youtube__btn');
   }
@@ -13,12 +12,13 @@ export class VideoBnrYoutube {
   }
   initYouTubePlayer() {
     // YouTube初期化
+    const playerId = this.el.dataset.ytVideoPlayer;
     const ytConfig = {
       videoId: this.el.dataset.ytVideoId,
       width: this.el.dataset.ytWidth,
       height: this.el.dataset.ytHeight,
     };
-    this.player = YouTubePlayer(this.playerId, ytConfig);
+    this.player = YouTubePlayer(playerId, ytConfig);
   }
   startVideo() {
     this.overlayEl.style.display = 'none';
@@ -30,4 +30,13 @@ export class VideoBnrYoutube {
       this.startVideo();
     });
   }
+}
+
+export function videoBnrYouTubeScript() {
+  console.log('youtube bnr');
+  const videoBnrYoutubeItems = document.querySelectorAll('.js-video-bnr-youtube');
+  [...videoBnrYoutubeItems].forEach(el => {
+    const videoBnrYoutube = new VideoBnrYoutubeClass(el);
+    videoBnrYoutube.init();
+  });
 }
