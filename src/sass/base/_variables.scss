@@ -1,0 +1,34 @@
+// 色の設定
+$color-text-primary: #333;
+$color-text-light: #fff;
+$color-bg-primary: #333;
+
+// フォントサイズの設定
+$fz-xs: 12px;
+$fz-lg: 24px;
+
+// トランジションの設定
+$transtion-default: .7s;
+$transtion-slow: 1s;
+
+
+
+
+
+
+
+
+
+
+// z-indexの数値
+$z-go-top: 100 !default;
+$z-header-nav: 101 !default;
+$z-gallery-modal: 1000 !default;
+
+// ブレークポイント
+$breakpoint-sm: 480px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 1024px !default;
+
+// タブレット時のシングルカラム幅
+$tablet-column-width: 480px !default;

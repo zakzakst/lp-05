@@ -1,0 +1,43 @@
+{
+  "name": "ejs-project",
+  "version": "1.0.0",
+  "description": "EJSを利用したサイト作成（テンプレート）",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "start": "gulp",
+    "imagemin": "gulp imagemin"
+  },
+  "author": "ishizaki satoshi",
+  "license": "ISC",
+  "os": [
+    "darwin",
+    "linux",
+    "win32",
+    "win64"
+  ],
+  "arch": "any",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-ejs": "^5.1.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "terser-webpack-plugin": "^3.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {
+    "bulma": "^0.9.0",
+    "gsap": "^3.4.2",
+    "youtube-player": "^5.5.2"
+  }
+}

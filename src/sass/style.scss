@@ -1,0 +1,12 @@
+// ライブラリ
+@import "../../node_modules/bulma/bulma.sass";
+
+// 変数
+@import "./base/_variables.scss";
+@import "./base/_common.scss";
+
+// 共通
+@import "./common/_utility.scss";
+@import "./common/_footer.scss";
+
+// 各セクション
