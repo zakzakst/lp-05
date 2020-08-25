@@ -2,11 +2,16 @@
 @import "../../node_modules/bulma/bulma.sass";
 
 // 変数
-@import "./base/_variables.scss";
-@import "./base/_common.scss";
+@import "./base/variables";
+@import "./base/common";
 
 // 共通
-@import "./common/_utility.scss";
-@import "./common/_footer.scss";
+@import "./common/utility";
+@import "./common/footer";
+@import "./common/video-bnr";
+@import "./common/video-bnr-youtube";
 
 // 各セクション
+@import "./section/hero";
+@import "./section/feature";
+@import "./section/gallery";

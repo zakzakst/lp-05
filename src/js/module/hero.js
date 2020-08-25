@@ -11,22 +11,28 @@ class HeroClass {
   constructor() {
     // 背景動画固定関連の変数
     this.kvVideoEl = document.getElementById('js-hero-kv-video');
-    this.kvVideoAspectRatio = 1.77 // 1280 / 720;
+    this.kvVideoWrapper = document.getElementById('js-hero-kv-video-wrapper');
+    this.kvVideoAspectRatio = 1.78; // 1280 / 720
+    this.kvVideoPlayBackRate = 0.5;
     // ヒーロー切り替え関連の変数
-    this.kvFixClass = 'is-kv-fix';
-    this.kvEl = document.getElementById('js-hero-kv');
+    this.heroFixClass = 'is-hero-fix';
+    this.heroEl = document.getElementById('js-hero');
     this.kvOverlayEl = document.getElementById('js-hero-kv-overlay');
-    this.contentEl = document.getElementById('js-hero-content');
     this.kvToggleDuration = .5;
-    this.contentToggleDuration = .5;
+    this.contentEl = document.getElementById('js-hero-content');
+    this.contentToggleDuration = .7;
     this.contentTransformY = 30;
   }
   init() {
     // ヒーロー関連スクリプトを初期化
     this.kvFix();
     this.setKvVideoPos();
-    this.kvVideoEl.play();
-    this.createScrollTrigger();
+    this.videoInitStart();
+    this.resizeHandler();
+    // ページ途中で再読み込みした場合の挙動対策で、スクロール時の処理の初期化を遅らせた（※ページ読み込みアニメーションを付ける場合は不要かもしれない）
+    setTimeout(() => {
+      this.createScrollTrigger();
+    }, 200);
   }
   showContent() {
     // 背景動画を停止
@@ -45,7 +51,7 @@ class HeroClass {
         duration: this.kvToggleDuration,
         y: 0
       }, 'kvHide')
-      .to(this.kvEl, {
+      .to(this.heroEl, {
         duration: this.kvToggleDuration,
         autoAlpha: 0
       }, 'kvHide')
@@ -70,7 +76,7 @@ class HeroClass {
         autoAlpha: 0
       })
       .addLabel('kvShow')
-      .to(this.kvEl, {
+      .to(this.heroEl, {
         duration: this.kvToggleDuration,
         autoAlpha: 1
       }, 'kvShow')
@@ -81,36 +87,51 @@ class HeroClass {
   }
   kvFix() {
     // キービジュアル固定用のスタイルを付与
-    document.documentElement.classList.add(this.kvFixClass);
+    document.documentElement.classList.add(this.heroFixClass);
   }
   kvFixClear() {
     // キービジュアル固定用のスタイルを削除
-    document.documentElement.classList.remove(this.kvFixClass);
+    document.documentElement.classList.remove(this.heroFixClass);
   }
   setKvVideoPos() {
     // 動画背景をウインドウ中央に配置
     const windowW = window.innerWidth;
     const windowH = window.innerHeight;
-
     if(windowW / windowH < this.kvVideoAspectRatio) {
-      console.log('ビデオの横幅が大きくなる');
       // ビデオの横幅が大きくなる場合
-      // min-height: 100vhが上手く効かないため、widthに「this.kvVideoAspectRatio」をかけてから配置
-      // 動画自体のclientWidthで対応しようとすると、動画の読込が完了していない場合にレイアウト崩れが起きるため、windowHを利用
-      // 「this.kvVideoAspectRatio」が1以下の場合は「windowH / this.kvVideoAspectRatio」に変更
       const posLeft = (windowH * this.kvVideoAspectRatio - windowW) / 2;
-      // this.kvVideoEl.style.width = `${100 * this.kvVideoAspectRatio}vw`;
-      this.kvVideoEl.style.left = `-${posLeft}px`;
+      this.kvVideoWrapper.style.width = `${windowH * this.kvVideoAspectRatio}px`;
+      this.kvVideoWrapper.style.top = null;
+      this.kvVideoWrapper.style.left = `-${posLeft}px`;
     } else if(windowW / windowH > this.kvVideoAspectRatio) {
-      console.log('ビデオの縦幅が大きくなる');
       // ビデオの縦幅が大きくなる場合
-      // 動画自体のclientHeightで対応しようとすると、動画の読込が完了していない場合にレイアウト崩れが起きるため、windowWを利用
-      // 「this.kvVideoAspectRatio」が1以下の場合は「windowW * this.kvVideoAspectRatio」に変更
       const posTop = (windowW / this.kvVideoAspectRatio - windowH) / 2;
-      this.kvVideoEl.style.top = `-${posTop}px`;
+      this.kvVideoWrapper.style.top = `-${posTop}px`;
+      this.kvVideoWrapper.style.left = null;
+    }
+  }
+  videoInitStart() {
+    // 最初の背景動画再生
+    this.kvVideoEl.playbackRate = this.kvVideoPlayBackRate;
+    if(this.kvVideoEl.buffered === 1) {
+      // 動画ファイルの読み込みが完了している場合
+      this.kvVideoEl.play();
+    } else {
+      // 動画ファイルの読み込みが完了しているない場合
+      this.kvVideoEl.addEventListener('loadeddata', () => {
+        this.kvVideoEl.play();
+      });
+    }
+  }
+  resizeHandler() {
+    // 画面がリサイズされた場合、動画背景を再配置
+    window.onresize = () => {
+      this.setKvVideoPos();
     }
   }
   createScrollTrigger() {
+    // ページトップに移動
+    window.scrollTo(0, 0);
     // スクロール連動処理の設定
     ScrollTrigger.create({
       trigger: this.contentEl,

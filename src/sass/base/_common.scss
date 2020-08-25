@@ -1,3 +1,15 @@
-img, iframe {
+body {
+  line-height: $font-lh-default;
+  color: $color-text-primary;
+  background: $color-bg-primary;
+}
+
+img, iframe, video {
   vertical-align: bottom;
+}
+
+.title,
+.content h2,
+.content h3 {
+  color: $color-text-primary;
 }

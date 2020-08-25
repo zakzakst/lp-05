@@ -5,7 +5,7 @@ const pageData = {
   description: 'ページの概要が入ります。',
   root: '',
   path: 'works/lp-05/',
-  addHeadLinks: ['https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'],
+  addHeadLinks: [],
   addHeadScripts: [],
   addFootScripts: [],
 };
@@ -13,6 +13,12 @@ const pageData = {
 <%- include(pageData.root + './_module/layout/layout-head', {pageData, commonData}); -%>
 
 <main>
+  <%- include(pageData.root + './_module/section/hero'); -%>
+  <div class="hero__content" id="js-hero-content">
+    <%- include(pageData.root + './_module/section/about'); -%>
+    <%- include(pageData.root + './_module/section/feature'); -%>
+    <%- include(pageData.root + './_module/section/gallery'); -%>
+  </div>
 </main>
 
 <%- include(pageData.root + './_module/layout/layout-foot', {pageData, commonData}); -%>

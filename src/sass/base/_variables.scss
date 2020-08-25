@@ -1,11 +1,13 @@
 // 色の設定
-$color-text-primary: #333;
-$color-text-light: #fff;
+$color-text-primary: #fff;
 $color-bg-primary: #333;
 
 // フォントサイズの設定
 $fz-xs: 12px;
 $fz-lg: 24px;
+
+// その他フォント関連の設定
+$font-lh-default: 1.5;
 
 // トランジションの設定
 $transtion-default: .7s;
