@@ -4,6 +4,7 @@ import { videoBnrScript } from './module/video-bnr';
 import { videoBnrYouTubeScript } from './module/video-bnr-youtube';
 import { videoModalScript } from './module/video-modal';
 import { videoModalYoutubeScript } from './module/video-modal-youtube';
+import { videoControlScript } from './module/video-control';
 
 (function() {
   // ヒーローセクション
@@ -18,4 +19,6 @@ import { videoModalYoutubeScript } from './module/video-modal-youtube';
   videoModalScript();
   // ビデオモーダル：YouTube
   videoModalYoutubeScript();
+  // ビデオ操作
+  videoControlScript();
 })();
