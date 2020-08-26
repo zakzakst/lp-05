@@ -1,0 +1,21 @@
+.page-loader__content {
+  width: 100%;
+}
+.page-loader__text {
+  margin-bottom: 8px;
+  text-align: center;
+}
+.page-loader__progress {
+  position: relative;
+  height: 2px;
+  background: #666;
+  & > span {
+    position: absolute;
+    display: block;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transition: width .3s;
+  }
+}

@@ -1,3 +1,4 @@
+import { pageLoaderScript } from './module/page-loader';
 import { heroScript } from './module/hero';
 import { featureScript } from './module/feature';
 import { videoBnrScript } from './module/video-bnr';
@@ -8,6 +9,8 @@ import { videoControlScript } from './module/video-control';
 import { videoControlYoutubeScript } from './module/video-control-youtube';
 
 (function() {
+  // ページローダー
+  pageLoaderScript();
   // ヒーローセクション
   heroScript();
   // 特徴セクション
