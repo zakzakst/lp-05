@@ -2,6 +2,8 @@ import { heroScript } from './module/hero';
 import { featureScript } from './module/feature';
 import { videoBnrScript } from './module/video-bnr';
 import { videoBnrYouTubeScript } from './module/video-bnr-youtube';
+import { videoModalScript } from './module/video-modal';
+import { videoModalYoutubeScript } from './module/video-modal-youtube';
 
 (function() {
   // ヒーローセクション
@@ -12,4 +14,8 @@ import { videoBnrYouTubeScript } from './module/video-bnr-youtube';
   videoBnrScript();
   // ビデオバナー：YouTube
   videoBnrYouTubeScript();
+  // ビデオモーダル：通常
+  videoModalScript();
+  // ビデオモーダル：YouTube
+  videoModalYoutubeScript();
 })();

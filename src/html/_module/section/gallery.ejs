@@ -1,5 +1,73 @@
-<div class="gallery-section container">
-  <section class="section content">
-    <h2 class="title is-2 has-text-centered">ギャラリー</h2>
-  </section>
+<div class="gallery-section">
+  <div class="container">
+    <section class="section content">
+      <h2 class="title is-2 has-text-centered">ギャラリー</h2>
+      <div class="columns is-multiline">
+        <div class="column is-one-quarter">
+          <a href="#" class="gallery__item image is-2by1 js-video-modal-btn" data-video-modal-target="js-video-modal1">
+            <img src="https://picsum.photos/id/104/600/400" alt="">
+          </a>
+        </div>
+        <div class="column is-one-quarter">
+          <a href="#" class="gallery__item image is-2by1 js-video-modal-btn" data-video-modal-target="js-video-modal2">
+            <img src="https://picsum.photos/id/108/600/400" alt="">
+          </a>
+        </div>
+        <div class="column is-one-quarter">
+          <a href="#" class="gallery__item image is-2by1 js-video-modal-youtube-btn" data-video-modal-youtube-target="js-video-modal-youtube1">
+            <img src="https://picsum.photos/id/106/600/400" alt="">
+          </a>
+        </div>
+        <div class="column is-one-quarter">
+          <a href="#" class="gallery__item image is-2by1 js-video-modal-youtube-btn" data-video-modal-youtube-target="js-video-modal-youtube2">
+            <img src="https://picsum.photos/id/107/600/400" alt="">
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+<div class="modal" id="js-video-modal1">
+  <div class="video-modal__overlay modal-background"></div>
+  <div class="modal-content">
+    <div class="video-modal">
+      <video class="video-modal__video" poster="/img/hero/kv-video.jpg" muted controls>
+        <source src="/img/hero/kv-video.mp4" type="video/mp4">
+        <p>video要素がサポートされていないブラウザでご覧になっています。</p>
+      </video>
+    </div>
+  </div>
+  <button class="video-modal__close modal-close is-large"></button>
+</div>
+<div class="modal" id="js-video-modal2">
+  <div class="video-modal__overlay modal-background"></div>
+  <div class="modal-content">
+    <div class="video-modal">
+      <video class="video-modal__video" poster="/img/hero/kv-video.jpg" muted controls>
+        <source src="/img/hero/kv-video.mp4" type="video/mp4">
+        <p>video要素がサポートされていないブラウザでご覧になっています。</p>
+      </video>
+    </div>
+  </div>
+  <button class="video-modal__close modal-close is-large"></button>
+</div>
+<div class="modal" id="js-video-modal-youtube1" data-yt-video-id="M7lc1UVf-VE" data-yt-player-id="js-video-modal-youtube-player1">
+  <div class="video-modal-youtube__overlay modal-background"></div>
+  <div class="modal-content">
+    <div class="video-modal-youtube">
+      <div id="js-video-modal-youtube-player1"></div>
+    </div>
+  </div>
+  <button class="video-modal-youtube__close modal-close is-large"></button>
+</div>
+<div class="modal" id="js-video-modal-youtube2" data-yt-video-id="M7lc1UVf-VE" data-yt-player-id="js-video-modal-youtube-player2">
+  <div class="video-modal-youtube__overlay modal-background"></div>
+  <div class="modal-content">
+    <div class="video-modal-youtube">
+      <div id="js-video-modal-youtube-player2"></div>
+    </div>
+  </div>
+  <button class="video-modal-youtube__close modal-close is-large"></button>
 </div>
