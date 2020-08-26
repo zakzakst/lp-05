@@ -18,7 +18,6 @@ class VideoModalClass {
   showVideoHandler() {
     this.btnEl.addEventListener('click', e => {
       e.preventDefault();
-      console.log(this.videoEl);
       this.showVideo();
     });
   }
