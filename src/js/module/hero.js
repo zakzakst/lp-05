@@ -29,10 +29,7 @@ class HeroClass {
     this.setKvVideoPos();
     this.videoInitStart();
     this.resizeHandler();
-    // ページ途中で再読み込みした場合の挙動対策で、スクロール時の処理の初期化を遅らせた（※ページ読み込みアニメーションを付ける場合は不要かもしれない）
-    setTimeout(() => {
-      this.createScrollTrigger();
-    }, 200);
+    this.createScrollTrigger();
   }
   showContent() {
     // 背景動画を停止

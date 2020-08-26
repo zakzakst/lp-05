@@ -5,6 +5,7 @@ import { videoBnrYouTubeScript } from './module/video-bnr-youtube';
 import { videoModalScript } from './module/video-modal';
 import { videoModalYoutubeScript } from './module/video-modal-youtube';
 import { videoControlScript } from './module/video-control';
+import { videoControlYoutubeScript } from './module/video-control-youtube';
 
 (function() {
   // ヒーローセクション
@@ -21,4 +22,6 @@ import { videoControlScript } from './module/video-control';
   videoModalYoutubeScript();
   // ビデオ操作
   videoControlScript();
+  // ビデオ操作：YouTube
+  videoControlYoutubeScript();
 })();
