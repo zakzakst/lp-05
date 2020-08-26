@@ -33,7 +33,6 @@ class VideoBnrYoutubeClass {
 }
 
 export function videoBnrYouTubeScript() {
-  console.log('youtube bnr');
   const videoBnrYoutubeItems = document.querySelectorAll('.js-video-bnr-youtube');
   [...videoBnrYoutubeItems].forEach(el => {
     const videoBnrYoutube = new VideoBnrYoutubeClass(el);

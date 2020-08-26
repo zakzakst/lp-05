@@ -1,3 +1,15 @@
 .gallery-section {
   background: #000;
 }
+.gallery__item {
+  border-radius: 4px;
+  overflow: hidden;
+  & > img {
+    transition: transform $transtion-fast;
+  }
+  &:hover {
+    & > img {
+      transform: scale(1.2);
+    }
+  }
+}
