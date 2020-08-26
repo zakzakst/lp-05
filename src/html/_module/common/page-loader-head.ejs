@@ -9,7 +9,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fff;
+  background: #333;
   justify-content: center;
   align-items: center;
   z-index: 10000;
@@ -17,14 +17,13 @@
 </style>
 
 <script>
-
 // 10秒たったら強制的にロード画面を非表示
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    const pageLoader = document.getElementById('js-page-loader');
-    if(pageLoader) {
-      document.getElementById('js-page-loader').style.display = 'none';
-    }
-  }, 10000);
-}, false);
+// document.addEventListener('DOMContentLoaded', () => {
+//   setTimeout(() => {
+//     const pageLoader = document.getElementById('js-page-loader');
+//     if(pageLoader) {
+//       document.getElementById('js-page-loader').style.display = 'none';
+//     }
+//   }, 10000);
+// }, false);
 </script>
